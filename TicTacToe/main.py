@@ -469,43 +469,45 @@ Builder.load_string("""
 """)
 
 
-
 # Declare both screens
 class TicTacToe(Screen):
     def restart(self):
-        self.switch = True
+        try:
+            self.switch = True
 
-        for button in self.buttons:
-            button.color = [0, 0, 0, 1]
-            button.text = ""
-            button.disabled = False
-
-
-
+            for button in self.buttons:
+                button.color = [0, 0, 0, 1]
+                button.text = ""
+                button.disabled = False
+        except Exception as e:
+            print(e)
 
     def tic_tac_toe(self, arg):
-        self.buttons[arg - 1].disabled = True
-        self.buttons[arg - 1].text = 'X' if self.switch else 'O'
-        self.switch = not self.switch
+        try:
+            self.buttons[arg - 1].disabled = True
+            self.buttons[arg - 1].text = 'X' if self.switch else 'O'
+            self.switch = not self.switch
 
-        coordinate = (
-            (0, 1, 2), (3, 4, 5), (6, 7, 8),  # X
-            (0, 3, 6), (1, 4, 7), (2, 5, 8),  # Y
-            (0, 4, 8), (2, 4, 6),  # D
-        )
+            coordinate = (
+                (0, 1, 2), (3, 4, 5), (6, 7, 8),  # X
+                (0, 3, 6), (1, 4, 7), (2, 5, 8),  # Y
+                (0, 4, 8), (2, 4, 6),  # D
+            )
 
-        vector = lambda item: [self.buttons[x].text for x in item]
+            vector = lambda item: [self.buttons[x].text for x in item]
 
-        color = [0, 1, 0, 1]
+            color = [0, 1, 0, 1]
 
-        for item in coordinate:
-            if vector(item).count('X') == 3 or vector(item).count('O') == 3:
-                win = True
-                for i in item:
-                    self.buttons[i].color = color
-                for button in self.buttons:
-                    button.disabled = True
-                break
+            for item in coordinate:
+                if vector(item).count('X') == 3 or vector(item).count('O') == 3:
+                    win = True
+                    for i in item:
+                        self.buttons[i].color = color
+                    for button in self.buttons:
+                        button.disabled = True
+                    break
+        except Exception as e:
+            print(e)
 
     def start_game(self):
         self.switch = True
@@ -521,39 +523,43 @@ class TicTacToe(Screen):
         self.buttons.append(self.button_9)
 
 
-
 class TicTacToe4x4(Screen):
     def restart(self):
-        self.switch = True
-
-        for button in self.buttons:
-            button.color = [0, 0, 0, 1]
-            button.text = ""
-            button.disabled = False
+        try:
+            self.switch = True
+            for button in self.buttons:
+                button.color = [0, 0, 0, 1]
+                button.text = ""
+                button.disabled = False
+        except Exception as e:
+            print(e)
 
     def tic_tac_toe(self, arg):
-        self.buttons[arg - 1].disabled = True
-        self.buttons[arg - 1].text = 'X' if self.switch else 'O'
-        self.switch = not self.switch
+        try:
+            self.buttons[arg - 1].disabled = True
+            self.buttons[arg - 1].text = 'X' if self.switch else 'O'
+            self.switch = not self.switch
 
-        coordinate = (
-            (0, 1, 2), (1, 2, 3), (4, 5, 6), (5, 6, 7), (8, 9, 10), (9, 10, 11), (12, 13, 14), (13, 14, 15),  # X
-            (0, 4, 8), (4, 8, 12), (1, 5, 9), (5, 9, 13), (2, 6, 10), (6, 10, 14), (3, 7, 11), (7, 11, 15),  # Y
-            (0, 5, 10), (5, 10, 15), (1, 6, 11), (4, 9, 14), (2, 5, 8), (3, 6, 9), (6, 9, 12), (7, 10, 13),  # D
-        )
+            coordinate = (
+                (0, 1, 2), (1, 2, 3), (4, 5, 6), (5, 6, 7), (8, 9, 10), (9, 10, 11), (12, 13, 14), (13, 14, 15),  # X
+                (0, 4, 8), (4, 8, 12), (1, 5, 9), (5, 9, 13), (2, 6, 10), (6, 10, 14), (3, 7, 11), (7, 11, 15),  # Y
+                (0, 5, 10), (5, 10, 15), (1, 6, 11), (4, 9, 14), (2, 5, 8), (3, 6, 9), (6, 9, 12), (7, 10, 13),  # D
+            )
 
-        vector = lambda item: [self.buttons[x].text for x in item]
+            vector = lambda item: [self.buttons[x].text for x in item]
 
-        color = [0, 1, 0, 1]
+            color = [0, 1, 0, 1]
 
-        for item in coordinate:
-            if vector(item).count('X') == 3 or vector(item).count('O') == 3:
-                win = True
-                for i in item:
-                    self.buttons[i].color = color
-                for button in self.buttons:
-                    button.disabled = True
-                break
+            for item in coordinate:
+                if vector(item).count('X') == 3 or vector(item).count('O') == 3:
+                    win = True
+                    for i in item:
+                        self.buttons[i].color = color
+                    for button in self.buttons:
+                        button.disabled = True
+                    break
+        except Exception as e:
+            print(e)
 
     def start_game(self):
         self.switch = True
@@ -578,39 +584,45 @@ class TicTacToe4x4(Screen):
 
 class TicTacToe5x5(Screen):
     def restart(self):
-        self.switch = True
+        try:
+            self.switch = True
 
-        for button in self.buttons:
-            button.color = [0, 0, 0, 1]
-            button.text = ""
-            button.disabled = False
+            for button in self.buttons:
+                button.color = [0, 0, 0, 1]
+                button.text = ""
+                button.disabled = False
+        except Exception as e:
+            print(e)
 
     def tic_tac_toe(self, arg):
-        self.buttons[arg - 1].disabled = True
-        self.buttons[arg - 1].text = 'X' if self.switch else 'O'
-        self.switch = not self.switch
+        try:
+            self.buttons[arg - 1].disabled = True
+            self.buttons[arg - 1].text = 'X' if self.switch else 'O'
+            self.switch = not self.switch
 
-        coordinate = (
-            (0, 1, 2, 3), (1, 2, 3, 4), (5, 6, 7, 8), (6, 7, 8, 9), (10, 11, 12, 13), (11, 12, 13, 14),
-            (15, 16, 17, 18), (16, 17, 18, 19), (20, 21, 22, 23), (21, 22, 23, 24),  # X
-            (0, 5, 10, 15), (5, 10, 15, 20), (1, 6, 11, 16), (6, 11, 16, 21), (2, 7, 12, 17), (7, 12, 17, 22),
-            (3, 8, 13, 18), (8, 13, 18, 23), (4, 9, 14, 19), (9, 14, 19, 24),  # Y
-            (1, 7, 13, 19), (0, 6, 12, 18), (6, 12, 18, 24), (5, 11, 17, 23), (3, 7, 11, 15), (4, 8, 12, 16),
-            (8, 12, 16, 20), (9, 13, 17, 21),  # D
-        )
+            coordinate = (
+                (0, 1, 2, 3), (1, 2, 3, 4), (5, 6, 7, 8), (6, 7, 8, 9), (10, 11, 12, 13), (11, 12, 13, 14),
+                (15, 16, 17, 18), (16, 17, 18, 19), (20, 21, 22, 23), (21, 22, 23, 24),  # X
+                (0, 5, 10, 15), (5, 10, 15, 20), (1, 6, 11, 16), (6, 11, 16, 21), (2, 7, 12, 17), (7, 12, 17, 22),
+                (3, 8, 13, 18), (8, 13, 18, 23), (4, 9, 14, 19), (9, 14, 19, 24),  # Y
+                (1, 7, 13, 19), (0, 6, 12, 18), (6, 12, 18, 24), (5, 11, 17, 23), (3, 7, 11, 15), (4, 8, 12, 16),
+                (8, 12, 16, 20), (9, 13, 17, 21),  # D
+            )
 
-        vector = lambda item: [self.buttons[x].text for x in item]
+            vector = lambda item: [self.buttons[x].text for x in item]
 
-        color = [0, 1, 0, 1]
+            color = [0, 1, 0, 1]
 
-        for item in coordinate:
-            if vector(item).count('X') == 4 or vector(item).count('O') == 4:
-                win = True
-                for i in item:
-                    self.buttons[i].color = color
-                for button in self.buttons:
-                    button.disabled = True
-                break
+            for item in coordinate:
+                if vector(item).count('X') == 4 or vector(item).count('O') == 4:
+                    win = True
+                    for i in item:
+                        self.buttons[i].color = color
+                    for button in self.buttons:
+                        button.disabled = True
+                    break
+        except Exception as e:
+            print(e)
 
     def start_game(self):
         self.switch = True
